@@ -3,7 +3,17 @@ Carte simple de restitution des données d'un programme.
 
 [Démo ici](https://lpoagirpourlabiodiversite.github.io/GnCitizenEmbedMap/ "Démo")
 
-Pour personnaliser la source des données, éditez le fichier `assets/custom.js`.
+Pour personnaliser la source des données, utilisez des [querystrings](https://en.wikipedia.org/wiki/Query_string "wikipedia") dans l'url de la page. Example: `http://macarte.org/index.html?api=http://v2327.phpnet.fr/gncitizen/api&program=3&type=observations` ou éditez le fichier `assets/custom.js`
+
+
+## Les querystrings à utiliser sont:
+* `api` > l'url de l'API (ex: `http://obs.maville.fr/gncitizen/api` )
+* `program` > l'identifiant du programme
+* `type` > le type de programme (`observations` (default) ou `sites`)
+
+
+## Le fichier `assets/custom.js`:
+
 
 ```js
     var CitizenUrl = 'https://cors.io/?http://v2252.phpnet.fr/gncitizen/api'; // GeoNature-citizen API url 
@@ -16,8 +26,8 @@ Pour personnaliser la source des données, éditez le fichier `assets/custom.js`
 
 Le préfixe d'url https://cors.io est optionnel, utilisé en cas de problème de type `cross-origin`
 
-TODO
 
-* [ ] Personnaliser les `tooltips` des observations espèces
+## TODO
+
 * [ ] Ajouter une photo de l'observation dans les `tooltips`
-
+* [ ] Type de programme automatiquement défini à partir des descriptions du programme

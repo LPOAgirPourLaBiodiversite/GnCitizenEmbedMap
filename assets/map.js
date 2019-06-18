@@ -4,7 +4,7 @@ if (CitizenType == "observations") {
     var DataUrl = CitizenUrl + "/" + CitizenType + "/programs/" + CitizenProgram;
 }
 
-var map = L.map("map");
+var map = L.map("map").setView([45, 5], 10);
 L.tileLayer(tileLayer, {
     attribution: tileLayerAttribution
 }).addTo(map);
@@ -45,7 +45,7 @@ function SiteData(json) {
         })
         .bindPopup(function(layer) {
             var popupContent = "";
-            console.log(layer.feature.properties)
+            console.log(layer.feature.properties);
             if (CitizenType == "sites") {
                 popupContent =
                     "#" +
@@ -58,7 +58,8 @@ function SiteData(json) {
                     "#" +
                     layer.feature.properties.date +
                     " <b>" +
-                    layer.feature.properties.common_name + "</b>";
+                    layer.feature.properties.common_name +
+                    "</b>";
             }
             return popupContent; // use the NAME property as the popup value
         })
@@ -101,6 +102,7 @@ fetch(
     .then(function(json) {
         // this is where we do things with data
         AreaData(json);
+        console.log('Bounds', AreaGeoJson.getBounds());
         map.fitBounds(AreaGeoJson.getBounds());
     });
 
