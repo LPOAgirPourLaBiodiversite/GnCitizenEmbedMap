@@ -37,8 +37,8 @@ function SiteData(json) {
         pointToLayer: function (feature, latlng) {
             var smallIcon = new L.Icon({
                 iconSize: [34, 43],
-                iconAnchor: [13, 73],
-                popupAnchor: [1, -24],
+                iconAnchor: [17, 43],
+                popupAnchor: [0, -25],
                 iconUrl: dataMarker
             });
             return L.marker(latlng, { icon: smallIcon });
