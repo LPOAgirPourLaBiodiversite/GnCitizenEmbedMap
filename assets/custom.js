@@ -1,5 +1,5 @@
 // Data To Update *********************************************
-var citizenUrl = "https://cors.io/?http://v2327.phpnet.fr/obs/api";
+var citizenUrl = "https://cors.io/?http://v2327.phpnet.fr/gncitizen/api";
 var citizenProgram = "all"; // Program id
 var citizenType = "observations"; // Program type 'sites' or 'observations'
 var tileLayer = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"; // Map background source layer (OpenStreetMap)
