@@ -12,15 +12,15 @@ function getParameterByName(name, url) {
 }
 
 if (getParameterByName("api")) {
-    CitizenUrl = getParameterByName("api");
+    citizenUrl = getParameterByName("api");
 }
 if (getParameterByName("program")) {
-    CitizenProgram = getParameterByName("program");
+    citizenProgram = getParameterByName("program");
 }
 if (getParameterByName("type")) {
-    CitizenType = getParameterByName("type");
+    citizenType = getParameterByName("type");
 }
 
-console.log("CitizenUrl", CitizenUrl);
-console.log("CitizenProgram", CitizenProgram);
-console.log("CitizenType", CitizenType);
+console.log("citizenUrl", citizenUrl);
+console.log("citizenProgram", citizenProgram);
+console.log("citizenType", citizenType);

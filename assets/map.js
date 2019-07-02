@@ -1,9 +1,15 @@
-if (CitizenType == "observations") {
-    var DataUrl = CitizenUrl + "/programs/" + CitizenProgram + "/" + CitizenType;
-} else if (CitizenType == "sites") {
-    var DataUrl = CitizenUrl + "/" + CitizenType + "/programs/" + CitizenProgram;
+if (citizenType == "observations") {
+    var dataUrl = citizenUrl + "/programs/" + citizenProgram + "/" + citizenType;
+} else if (citizenType == "sites") {
+    var dataUrl = citizenUrl + "/" + citizenType + "/programs/" + citizenProgram;
 }
 
+if (citizenProgram == "all") {
+    var programUrl = citizenUrl + "/programs" + "?with_geom=true";
+}
+else {
+    var programUrl = citizenUrl + "/programs/" + citizenProgram;
+}
 var map = L.map("map").setView([45, 5], 10);
 L.tileLayer(tileLayer, {
     attribution: tileLayerAttribution
@@ -46,14 +52,14 @@ function SiteData(json) {
         .bindPopup(function(layer) {
             var popupContent = "";
             console.log(layer.feature.properties);
-            if (CitizenType == "sites") {
+            if (citizenType == "sites") {
                 popupContent =
                     "#" +
                     layer.feature.properties.id_site +
                     " <b>" +
                     layer.feature.properties.name +
                     "</b>";
-            } else if (CitizenType == "observations") {
+            } else if (citizenType == "observations") {
                 popupContent =
                     "#" +
                     layer.feature.properties.date +
@@ -94,9 +100,10 @@ function AreaData(json) {
 }
 
 fetch(
-        CitizenUrl + "/programs/" + CitizenProgram // this URL is provided in the assets directory
+        programUrl // this URL is provided in the assets directory
     )
     .then(function(response) {
+        console.log(programUrl)
         return response.json();
     })
     .then(function(json) {
@@ -107,7 +114,7 @@ fetch(
     });
 
 fetch(
-        DataUrl // this URL is provided in the assets directory
+        dataUrl // this URL is provided in the assets directory
     )
     .then(function(response) {
         return response.json();
